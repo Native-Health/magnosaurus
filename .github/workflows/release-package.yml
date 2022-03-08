@@ -6,14 +6,6 @@ on:
       - dev
 
 jobs:
-  addAuth:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup npmrc
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
-
   Publish:
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +14,6 @@ jobs:
         run: |
           npm ci
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          
