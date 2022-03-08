@@ -3,7 +3,7 @@ name: Node.js Package
 on:
   push:
     branches: 
-      - main
+      - dev
 
 jobs:
   addAuthAndPublish:
@@ -14,9 +14,7 @@ jobs:
         run: |
           echo "@native-health:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
-      - name: Publish
-        run: |
           npm ci
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
