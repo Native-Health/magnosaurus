@@ -9,10 +9,10 @@ jobs:
   addAuth:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      run: |
-        echo "@native-health:registry=https://npm.pkg.github.com" >> .npmrc
-        echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
+      - uses: actions/checkout@v2
+      - run: |
+          echo "@native-health:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
 
   build:
     runs-on: ubuntu-latest
