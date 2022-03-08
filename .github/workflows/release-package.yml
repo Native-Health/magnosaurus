@@ -14,7 +14,6 @@ jobs:
   #         echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
 
   build:
-    needs: addAuth
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
