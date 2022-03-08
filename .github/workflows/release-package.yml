@@ -2,7 +2,7 @@ name: Node.js Package
 on:
   push:
     branches: 
-      - dev
+      - main
 jobs:
   addAuth:
     runs-on: ubuntu-latest
