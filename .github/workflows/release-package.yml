@@ -6,6 +6,14 @@ on:
       - dev
 
 jobs:
+  addAuth:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      run: |
+        echo "@native-health:registry=https://npm.pkg.github.com" >> .npmrc
+        echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -21,10 +29,5 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

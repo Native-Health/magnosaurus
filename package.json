@@ -13,9 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/Native-Health/magnosaurus.git"
   },
-  "publishConfig": {
-    "@native-health:registry": "https://npm.pkg.github.com"
-  },
   "keywords": [
     "mongo",
     "odm",
