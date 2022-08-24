@@ -1,6 +1,6 @@
 {
   "name": "@native-health/magnosaurus",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "description": "Light mongodb odm inspired by Mongoose",
   "main": "index.js",
   "directories": {
